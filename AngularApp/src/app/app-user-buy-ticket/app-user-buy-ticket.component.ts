@@ -83,13 +83,6 @@ export class AppUserBuyTicketComponent implements OnInit {
 
   private initConfig(): void {
     
-   
-    /*var diffDays =this.priceWDiscount;
-.
-    console.log("cena u dinarima: ", diffDays);
-    diffDays = diffDays/118;
-    var str = diffDays.toFixed(2);
-    console.log("cena u evrima: ", str);*/
 
     this.payPalConfig = {
       currency: 'USD',
