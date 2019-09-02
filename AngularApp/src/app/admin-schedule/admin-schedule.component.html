@@ -1,0 +1,162 @@
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+
+<nav class="navbar">
+        <label id="label">Bus station</label>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup"
+            aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div>
+            <div>
+                <a id="btn" href="/admin">Home <span class="sr-only">(current)</span></a>
+            </div>
+        </div>
+    </nav>
+
+<div class="all">
+<form [formGroup]="Form"  class="needs-validation" novalidate>
+    <div class="needs-validation">
+        <div class="form-row">
+
+            <!---------------------------------------------------->
+            <div class="col-md-6 mb-2 diss">
+
+                <div class="row">
+
+                    <!-- Force next columns to break to new line -->
+                    <div class="w-100"></div>
+
+                    <div class="col-6 col-sm-10 change">
+                        <div class="text2">
+                            CHANGE
+                        </div>
+
+                        <div class="form-row">
+                            <div class="col-md-6 mb-2 id">
+                                Line:
+
+                            </div>
+                            <div class="col-md-6 mb-2 input">
+                                <select class="custom-select" (change)="selectedLine($event)" required>
+                                    <option></option>
+                                    <option *ngFor="let obj of lines" [value]="obj.Line">{{obj.Line}}</option>
+                                </select>
+                                <div class="invalid-feedback">
+                                    Please enter valid line.
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="form-row">
+                            <div class="col-md-6 mb-2 id">
+                                Select ticket type:
+
+                            </div>
+                            <div class="col-md-6 mb-2 id">
+                                <select class="custom-select" (change)="selectedType($event)" required>
+                                     <option></option>
+                                     <option value="WorkDay"> Work Day</option>
+                                     <option value="Saturday"> Saturday</option>
+                                    <option value="Sunday">Sunday </option>
+                                </select>
+                            </div>
+
+                            <!--  <div class="invalid-feedback">You must select type of pearson</div>-->
+                        </div>
+                        <div class="form-row">
+                            <div class="col-md-6 mb-2 id">
+                                Departures:
+
+                            </div>
+                            <div class="col-md-6 mb-2 input">
+                                <input type="text" class="form-control" formControlName="deps" id="validationCustom04" required>
+                                <div class="invalid-feedback">
+                                    Please enter valid departure.
+                                </div>
+                            </div>
+                            <button type="button" (click)="Show()" id="btn"> Show</button>
+
+                         
+                        </div>
+
+                    </div>
+
+
+
+                    <div class="col-6 col-sm-10 change">
+
+                        <div class="text3">
+                            ADD AND DELETE
+                        </div>
+                        <div class="text3">
+                            You must enter value in format: hh:mm
+                        </div>
+                        <form [formGroup]="AddForm"  class="needs-validation" novalidate>
+                        <div class="form-row">
+
+                           
+                                <div class="col-md-2 mb-2 id">
+                                    Add:
+
+                                </div>
+                                <div class="col-md-4 mb-2 input">
+                                    <input type="text" class="form-control" formControlName="dep" id="validationCustom04" required>
+                                    <div class="invalid-feedback">
+                                        Please enter valid departure.
+                                    </div>
+                                </div>
+
+                                <div class="col-md-6 mb-2 input">
+                                    <button type="button" (click)="Add()" id="btn"> Add</button>
+                                </div>
+                           
+
+
+                        </div>
+                    </form>
+                    </div>
+
+                    <div class="col-6 col-sm-10 change">
+
+
+                            <form [formGroup]="RemoveForm" (ngSubmit)="register()" class="needs-validation" novalidate>
+                        <div class="form-row">
+                            
+                                <div class="col-md-2 mb-2 id">
+                                    Delete:
+
+                                </div>
+                                <div class="col-md-4 mb-2 input">
+                                    <input type="text" class="form-control" formControlName="dep" id="validationCustom04" required>
+                                    <div class="invalid-feedback">
+                                        Please enter valid departure.
+                                    </div>
+                                </div>
+
+                                <div class="col-md-6 mb-2 input">
+                                    <button type="button" (click)="Remove()" id="btn"> Delete</button>
+                                </div>
+                            
+                            <div>
+                                    {{mssg}}
+                            </div>
+
+
+                        </div>
+                    </form>
+                    </div>
+
+
+
+                </div>
+
+
+            </div>
+
+        </div>
+    </div>
+    <!---------------------------------------------------->
+
+</form>
+</div>

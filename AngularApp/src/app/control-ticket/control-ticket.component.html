@@ -1,0 +1,98 @@
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+<nav class="navbar">
+    <label id="label"class="navbar-brand">Bus station</label>
+    <a class="nav-item nav-link active"  id="btn" (click)="Logout()" routerLinkActive="active">Log out</a>
+</nav>
+<br/>
+<div class="all" >
+<form [formGroup]="ticketForm" class="needs-validation"  (ngSubmit)="CheckIn()" novalidate>
+    <div class="poruka">
+        This is a place where you check your card.
+    </div>
+
+    <div class="form-row">
+            <div class="col-md-4 mb-2 id">
+                Enter your id:
+    
+            </div>
+            <div class="col-md-4 mb-2 input">
+                <input  id="enter-id" type="text" class="form-control" formControlName="Id"   required>
+                <div class="invalid-feedback">
+                    Please enter valid id.
+                </div>
+            </div>
+            <div class="col-md-4 mb-2 id">
+              <button id="btn1" type="submit">Check in</button>
+            </div>
+    
+    
+        </div>
+    
+        <div class="form-row info">
+            <div class="col-md-3 mb-2 info-text">
+              Info:
+    
+            </div>
+            <div class="col-md-2 mb-2 input">
+                <textarea style="left: 57px; top: 9px; transition: none 0s ease 0s;" class="message" for=""> {{mssg}}</textarea>
+            </div>
+        </div>
+        <br/>
+        <br/>
+        <br/>
+        <br/>
+        <br/>
+        <br/>
+        <br/>
+        <br/>
+        
+ 
+</form>      
+</div>  
+<div class="all">
+        <label class="lbl1" >Users  waiting for approval</label>
+        <table id="tabela">
+             <tr >
+                 <th>Email</th>
+                 <th>FirstName</th>
+                 <th>LastName</th>
+                 <th>DateOfBirth</th>
+                 <th>Type</th>
+                 <th>Image</th>
+                 <th  colspan="2">Approve/Decline</th>
+             </tr>
+             <tr *ngFor="let user of users; let i = index">
+                <td >
+                    {{users[i].Email}}
+                 </td>
+                 <td >
+                     {{users[i].FirstName}}
+                </td>
+                 <td >
+                     {{users[i].LastName}}
+                 </td>
+                 <td >
+                    {{users[i].DateOfBirth}}
+                 </td>
+                 <td >
+                     {{users[i].Type}}
+                 </td>
+                 <td>
+                    <img height="80" width="80" id="image" [src]="users[i].ImageSrc" >
+                 </td>
+                 <td >
+                    <input type="submit" (click)="Approve(users[i].Email)" id="smallBtn"  value="Aprove"/>
+                </td>
+                <td >
+                    <input type="button" (click)="Decline(users[i].Email)" id="smallBtn" value="Decline"/>
+                </td>
+             </tr>
+        </table>
+            
+    
+    </div>
+    
+
+
+

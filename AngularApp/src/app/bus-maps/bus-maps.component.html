@@ -1,0 +1,77 @@
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+  integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+<!--<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+-->
+
+<nav class="navbar">
+  <label id="label">Bus station</label>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup"
+    aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="">
+    <div class="">
+      <a class="" id="btn" (click)="Navigate()">Home <span class="sr-only">(current)</span></a>
+    </div>
+  </div>
+</nav>
+
+
+<div class="map">
+  <h1>Map</h1>
+  <agm-map [latitude]="markerInfo.location.latitude" [longitude]="markerInfo.location.longitude" [zoom]="14">
+    <div>
+      <agm-marker *ngFor="let stat of stati" [latitude]="stat.latitude" [longitude]="stat.longitude" [title]="stat.name"
+        [label]="" [iconUrl]="iconPath">
+        <agm-info-window>
+          Name: {{stat.name}}
+          <br />
+          Latitude: {{stat.latitude}}
+          <br />
+          Longitude: {{stat.longitude}}
+          <br />
+          Address: {{stat.address}}
+          <br />
+          Lines: {{stat.lines}}
+        </agm-info-window>
+
+      </agm-marker>
+
+    </div>
+    <div *ngFor="let oneLine of showLines, let i = index">
+      <div *ngFor="let dire of oneLine.Stations, let j = index">
+        <agm-direction [renderOptions]="{polylineOptions: {strokeColor: oneLine.ColorLine}, suppressMarkers: true}"
+          *ngIf="oneLine.Stations[j+1]"
+          [origin]="{ lat: oneLine.Stations[j].Latitude, lng: oneLine.Stations[j].Longitude }"
+          [destination]="{ lat: oneLine.Stations[j+1].Latitude, lng: oneLine.Stations[j+1].Longitude }">
+        </agm-direction>
+      </div>
+
+    </div>
+    <!-- <agm-marker *ngFor="let point of selLine.path" [latitude]="point.latitude" [longitude]="point.longitude" [iconUrl]="selLine.icon">
+       </agm-marker> -->
+
+  </agm-map>
+
+  <form>
+    <br />
+    <input type="checkbox" class="defaultCheckbox" name="showStations" (change)="ShowStationsSelectionChanged()"> Show
+    stations<br>
+  </form>
+  <div class="btncb">
+    <button id="btn" (click)="showCheckBoxes()">Click to choose lines</button> <br />
+    <div *ngIf="show">
+      <form [formGroup]="myGroup">
+        <div formArrayName="allLines" *ngFor="let genre of myGroup.controls.allLines.controls; let i = index">
+          <input type="checkbox" [formControlName]="i" (change)="FieldsChange($event)"
+            value="{{allLines[i].LineNumber}}">
+          <label>{{allLines[i].LineNumber}}</label><br />
+        </div>
+
+      </form>
+    </div>
+
+  </div>
+</div>

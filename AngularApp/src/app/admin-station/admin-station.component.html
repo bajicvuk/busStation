@@ -1,0 +1,236 @@
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+<nav class="navbar">
+        <label id="label">Bus station</label>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup"
+            aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div>
+            <div>
+                <a id="btn" href="/admin">Home <span class="sr-only">(current)</span></a>
+            </div>
+        </div>
+    </nav>
+<div class="all">
+<form class="needs-validation" novalidate>
+    <div class="needs-validation">
+        <div class="form-row">
+                
+            <div class="col-md-5 mb-2 id1">
+                <div class="text1">
+                    ADD STATION
+                </div>
+                <form [formGroup]="AddForm" class="needs-validation" novalidate> 
+                <div class="form-row">
+                    <div class="col-md-6 mb-2 id">
+                        Name:
+
+                    </div>
+                    <div class="col-md-6 mb-2 input">
+                        <input type="text" formControlName="name" class="form-control" id="validationCustom04" required>
+                        <div class="invalid-feedback">
+                            Please enter valid name.
+                        </div>
+                    </div>
+
+                </div>
+
+                <div class="form-row">
+                    <div class="col-md-6 mb-2 id">
+                        Address:
+
+                    </div>
+                    <div class="col-md-6 mb-2 input">
+                        <input type="text" formControlName="address" class="form-control" id="validationCustom04" required>
+                        <div class="invalid-feedback">
+                            Please enter valid address.
+                        </div>
+                    </div>
+
+                </div>
+
+                <div class="form-row">
+                    <div class="col-md-6 mb-2 id">
+                        Latitude:
+
+                    </div>
+                    <div class="col-md-6 mb-2 input">
+                        <input type="text" formControlName="latitude" class="form-control" id="validationCustom04" required>
+                        <div class="invalid-feedback">
+                            Please enter valid latitude.
+                        </div>
+                    </div>
+
+                </div>
+
+                <div class="form-row">
+                    <div class="col-md-6 mb-2 id">
+                        Longitude:
+
+                    </div>
+                    <div class="col-md-6 mb-2 input">
+                        <input type="text" formControlName="longitude" class="form-control" id="validationCustom04" required>
+                        <div class="invalid-feedback">
+                            Please enter valid longitude.
+                        </div>
+                    </div>
+
+                </div>
+
+                
+
+                <button type="button" (click)="AddStation()" class="btn btn-primary savebutton" id="btn"> Add</button>
+                <div>
+                   {{addMssg}}
+                </div>
+                </form>
+
+                <agm-map (mapClick)="MapClicked($event)" [latitude]="markerInfo.location.latitude" [longitude]="markerInfo.location.longitude" [zoom]="14"></agm-map>
+
+            </div>
+            
+            <!---------------------------------------------------->
+            <div class="col-md-6 mb-2 diss">
+
+                <div class="row">
+                    <div class="col-6 col-sm-10">
+                        <div class="text2">
+                            DELETE
+                        </div>
+
+                        <form [formGroup]="deleteForm"  class="needs-validation" novalidate> 
+                        <div class="form-row">
+                            <div class="col-md-6 mb-2 id">
+                                Enter number of station:
+
+                            </div>
+                            <div class="col-md-6 mb-2 input">
+                                    <select class="custom-select" (change)="deleteSelected($event)" required>
+                                            <option></option>
+                                            <option *ngFor="let obj of ids" [value]="obj.Station">{{obj.Station}} - {{obj.Name}}</option>
+                                        </select>
+                                <div class="invalid-feedback">
+                                    Please enter valid address.
+                                </div>
+                            </div>
+
+                        </div>
+
+                        <button type="button" (click)="DeleteStation()" class="btn btn-primary savebutton" id="btn"> Delete</button>
+                        <div>
+                                {{deleteMssg}}
+                        </div>
+
+                        <hr class="new1">
+                        </form>
+                    </div>
+
+
+                    <!-- Force next columns to break to new line -->
+                    <div class="w-100"></div>
+
+                    <div class="col-6 col-sm-10">
+                        <div class="text2">
+                            CHANGE
+
+                        </div>
+                        <form [formGroup]="changeForm" (ngSubmit)="register()" class="needs-validation" novalidate> 
+                                <div class="form-row">
+                                        <div class="col-md-6 mb-2 id">
+                                            Id:
+                                        </div>
+                                        <div class="col-md-6 mb-2 input">
+                                                <select class="custom-select" (change)="selected($event)" required>
+                                                        <option></option>
+                                                        <option *ngFor="let obj of ids" [value]="obj.Station">{{obj.Station}}</option>
+                                                    </select>
+                                            <div class="invalid-feedback">
+                                                Please enter valid address.
+                                            </div>
+                                        </div>
+            
+                            </div>
+                        <div class="form-row">
+                            <div class="col-md-6 mb-2 id">
+                                Name:
+
+                            </div>
+                            <div class="col-md-6 mb-2 input">
+                                <input type="text" class="form-control" formControlName="name" id="validationCustom04" required>
+                                <div class="invalid-feedback">
+                                    Please enter valid name.
+                                </div>
+                            </div>
+
+                        </div>
+
+                        <div class="form-row">
+                            <div class="col-md-6 mb-2 id">
+                                Address:
+
+                            </div>
+                            <div class="col-md-6 mb-2 input">
+                                <input type="text" class="form-control" formControlName="address" id="validationCustom04" required>
+                                <div class="invalid-feedback">
+                                    Please enter valid address.
+                                </div>
+                            </div>
+
+                        </div>
+
+                        <div class="form-row">
+                            <div class="col-md-6 mb-2 id">
+                                Longitude:
+
+                            </div>
+                            <div class="col-md-6 mb-2 input">
+                                <input type="text" class="form-control" formControlName="longitude" id="validationCustom04" required>
+                                <div class="invalid-feedback">
+                                    Please enter valid longitude.
+                                </div>
+                            </div>
+
+                        </div>
+
+                        <div class="form-row">
+                            <div class="col-md-6 mb-2 id">
+                                Latitude:
+
+                            </div>
+                            <div class="col-md-6 mb-2 input">
+                                <input type="text" class="form-control" formControlName="latitude" id="validationCustom04" required>
+                                <div class="invalid-feedback">
+                                    Please enter valid latitude.
+                                </div>
+                            </div>
+
+                        </div>
+
+
+                        <button type="button" (click)="Change()" class="btn btn-primary savebutton" id="btn"> Save changes</button>
+                        <div>
+                           {{changeMssg}}
+                        </div>
+
+
+
+
+                        </form>
+
+                    </div>
+
+                </div>
+
+
+
+
+
+            </div>
+
+        </div>
+    </div>
+    <!---------------------------------------------------->
+
+</form>
+</div>

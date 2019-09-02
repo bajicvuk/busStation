@@ -1,0 +1,89 @@
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+    integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+<!--<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+    integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+    crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+    integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+    crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+    integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+    crossorigin="anonymous"></script>
+-->
+
+<nav class="navbar">    
+        <label id="h1">Pricelist</label>
+    <label id="label">Bus station</label>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup"
+        aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="">
+        <div class="">
+            <a class="" id="btn" (click)="Navigate()">Home <span class="sr-only">(current)</span></a>
+        </div>
+    </div>
+</nav>
+
+<form (ngSubmit)="register()" class="needs-validation" novalidate>
+
+    <table class="table" id="lbl">
+        <thead>
+            <tr>
+                <th scope="col"></th>
+                <th scope="col" colspan="2">Time ticket</th>
+                <th scope="col" colspan="2">Daily ticket</th>
+                <th scope="col" colspan="2">Monthly ticket</th>
+                <th scope="col" colspan="2">Annual ticket</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>Regular</td>
+                <td>{{prices[0]}} USD</td>
+                <td>Regular</td>
+                <td>{{prices[3]}} USD</td>
+                <td>Regular</td>
+                <td>{{prices[6]}} USD</td>
+                <td>Regular</td>
+                <td>{{prices[9]}} USD</td>
+            </tr>
+
+            <tr>
+
+                <td>Student</td>
+                <td>{{prices[1]}} USD</td>
+                <td>Student</td>
+                <td>{{prices[4]}} USD</td>
+                <td>Student</td>
+                <td>{{prices[7]}} USD</td>
+                <td>Student</td>
+                <td>{{prices[10]}} USD</td>
+            </tr>
+
+            <tr>
+                <td>Retaire</td>
+                <td>{{prices[2]}} USD</td>
+                <td>Retaire</td>
+                <td>{{prices[5]}} USD</td>
+                <td>Retaire</td>
+                <td>{{prices[8]}} USD</td>
+                <td>Retaire</td>
+                <td>{{prices[11]}} USD</td>
+            </tr>
+
+            <tr>
+                <th colspan="9" bgcolor="#fff">
+
+                </th>
+            </tr>
+
+        </tbody>
+    </table>
+    <button id="btn" (click)="goHome()">Back to home</button>
+    <button id="btn" (click)="buyTicket()">Go to buy ticket</button>
+    <br />
+    <label id="lbl">Students discount: {{prices[12]}}%</label>
+    <br />
+    <label id ="lbl">Retree discount: {{prices[13]}}%</label>
+</form>

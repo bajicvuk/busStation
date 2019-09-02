@@ -1,0 +1,154 @@
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+<nav class="navbar">
+        <label id="label">Bus station</label>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup"
+            aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div>
+            <div>
+                <a id="btn" href="/admin">Home <span class="sr-only">(current)</span></a>
+            </div>
+        </div>
+    </nav>
+
+    <div class="all">
+<form  [formGroup]="ticketForm" class="needs-validation"  novalidate>
+
+    <div class="needs-validation">
+        <div class="form-row">
+            <div class="col-md-5 mb-2 id1">
+                <div class="text1">
+                    Enter regular price for:
+                </div>
+
+                <div class="form-group">
+                    <label for="validationCustom05">Select ticket type</label>
+                    <select (change)="selected($event)"  class="custom-select"  required>
+          <option value=""></option>
+          <option value="TimeTicket"> Time ticket</option>
+          <option value="DailyTicket">Daily ticket</option>
+          <option value="MonthlyTicket">Monthly ticket</option>
+          <option value="AnnualTicket">Annual ticket</option>
+        </select>
+                    <!--  <div class="invalid-feedback">You must select type of pearson</div>-->
+                </div>
+
+                <div class="form-row">
+                    <div class="col-md-6 mb-2 id">
+                        New value:
+
+                    </div>
+                    <div class="col-md-6 mb-2 input">
+                        <input type="text" class="form-control" formControlName="newPrice" id="validationCustom04" required>
+                        <div class="invalid-feedback">
+                            Please enter valid line.
+                        </div>
+                    </div>
+
+                </div>
+
+                <button type="button" (click)="ChangePrice()" id="btn">Set</button>
+                <label>{{mssgPrice}}</label>
+               
+
+            </div>
+            <!---------------------------------------------------->
+            <div class="col-md-6 mb-2 diss">
+                <div class="form-row">
+
+                    <div class="col-md-4 mb-2 id">
+                        <div class="text2">
+                            Enter discount for:
+                        </div>
+                    </div>
+                    <div class="col-md-4 mb-2 id">
+                        Student discount: {{prices[12]}} %
+
+                    </div>
+
+                    <div class="col-md-4 mb-2 id">
+
+                        Retaire dicount:{{prices[13]}} %
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="validationCustom05">Select pearson type</label>
+                    <select (change)="selectedUser($event)" class="custom-select"  required>
+          <option value=""></option>
+          <option value="student"> Student</option>
+          <option value="retiree"> Retairee</option>
+        </select>
+                    <!--  <div class="invalid-feedback">You must select type of pearson</div>-->
+                </div>
+
+                <div class="form-row">
+                    <div class="col-md-6 mb-2 id">
+                        New value:
+
+                    </div>
+                    <div class="col-md-6 mb-2 input">
+                        <input type="text" class="form-control" formControlName="newDiscount" id="validationCustom04" required>
+                        <div class="invalid-feedback">
+                            Please enter valid line.
+                        </div>
+                    </div>
+
+                </div>
+
+                <button type="button" (click)="ChangeDiscount()" id="btn">Set</button>
+                <label>{{mssgDiscount}}</label>
+                
+            
+            </div>
+       
+        </div>
+    </div>
+    <!---------------------------------------------------->
+
+
+
+    <hr class="new1">
+
+    <table id="tbl" class="table table-bordered">
+        <thead>
+            <tr>
+                <th scope="col"></th>
+                <th scope="col" colspan="2">Time ticket</th>
+                <th scope="col" colspan="2">Daily ticket</th>
+                <th scope="col" colspan="2">Monthly ticket</th>
+                <th scope="col" colspan="2">Annual ticket</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>Regular</td>
+                <td colspan="2">{{prices[0]}} USD</td>
+                <td colspan="2">{{prices[3]}} USD</td>
+                <td colspan="2">{{prices[6]}} USD</td>
+                <td colspan="2">{{prices[9]}} USD</td>
+            </tr>
+
+            <tr>
+
+                <td>Student</td>
+                <td colspan="2">{{prices[1]}} USD</td>
+                <td colspan="2">{{prices[4]}} USD</td>
+                <td colspan="2">{{prices[7]}} USD</td>
+                <td colspan="2">{{prices[10]}} USD</td>
+            </tr>
+
+            <tr>
+                <td>Retaire</td>
+                <td colspan="2">{{prices[2]}} USD</td>
+                <td colspan="2">{{prices[5]}} USD</td>
+                <td colspan="2">{{prices[8]}} USD</td>
+                <td colspan="2">{{prices[11]}} USD</td>
+            </tr>
+
+        </tbody>
+    </table>
+</form>
+</div>

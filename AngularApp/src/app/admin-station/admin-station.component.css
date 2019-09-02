@@ -1,0 +1,95 @@
+.navbar {
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    width: 100%;
+    height: 60px;
+    background: rgb(135, 196, 245)
+}
+
+#label
+{
+    position: absolute;
+    font-size: 36px;
+    margin-left: 50px;
+    margin-right: 100px;
+    color: #fff;
+    top: 5px;
+    left: 800px;
+}
+label{
+    color: #fff;
+}
+#btn
+{    
+    
+    background-color: rgb(83, 170, 241);
+    color: #fff;    
+    
+}
+
+.all{
+    color: #fff;
+    background: rgb(135, 196, 245, 0.8);
+    position: relative;
+    top:50px;
+    left:0px;
+}
+.collapse.navbar-collapse {
+    right: 0%;
+    position: absolute;
+}
+
+.needs-validation {
+    /*  width: 500px;*/
+    margin-left: 10px;
+    margin-top: 10px;
+    /*position: absolute;
+      left:  20%*/
+}
+
+.card-body {
+    border-style: solid;
+    text-align: center;
+}
+
+.btn.btn-primary {
+    text-align: center;
+}
+
+.text1 {
+    margin-bottom: 20px;
+}
+
+.text2 {
+    margin-bottom: 20px;
+}
+
+hr.new1 {
+    border: 2px solid gray;
+ 
+}
+
+.diss {
+    margin-left: 40px;
+}
+
+.savebutton {
+    margin-top: 20px;
+    margin-bottom: 20px;
+    margin-left: 200px;
+}
+
+.showshedule {
+    width: 60%;
+    position: absolute;
+    left: 20%;
+}
+
+.submitbutton {
+    margin-left: 70px;
+}
+#btn
+{
+    background-color: rgb(83, 170, 241); /* Green */
+}

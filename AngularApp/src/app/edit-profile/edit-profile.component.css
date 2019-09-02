@@ -1,0 +1,119 @@
+.navbar {
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    width: 100%;
+    height: 60px;
+    background: rgb(135, 196, 245)
+}
+
+
+
+
+#label
+{
+    position: absolute;
+    font-size: 36px;
+    margin-left: 50px;
+    margin-right: 100px;
+    color: #fff;
+    top: 5px;
+    left: 800px;
+}
+label{
+    color: #fff;
+}
+#btn
+{    
+    
+    background-color: rgb(83, 170, 241);
+    color: #fff;    
+    
+}
+
+#div
+{
+    background-color: rgb(135, 196, 245);
+    color: #fff;    
+}
+
+.btns
+{
+    position: absolute;
+    top:5px;
+}
+
+.collapse.navbar-collapse {
+    right: 0%;
+    position: absolute;
+}
+
+.needs-validation {
+    position: absolute;
+    width: 500px;
+    margin-left: 10px;
+    margin-top: 10px;
+    top:60px;
+}
+
+#form
+{
+    background: rgb(135, 196, 245);
+    color: #fff;
+}
+
+.form-control
+{
+    background: #fff;
+}
+
+.first_name {
+    margin-bottom: 20px;
+}
+
+.last_name {
+    margin-bottom: 20px;
+}
+
+.username {
+    margin-bottom: 20px;
+}
+
+.password {
+    margin-bottom: 20px;
+}
+
+.email {
+    margin-bottom: 20px;
+}
+
+.confirm_password {
+    margin-bottom: 20px;
+}
+
+.form-row {
+    margin-bottom: 20px;
+}
+
+.btn.btn-primary {
+    margin-left: 200px;
+}
+
+.mssgEdit {
+    margin-top: 20px;
+    margin-left: 200px;
+}
+
+.mssg {
+    margin-top: 20px;
+    margin-left: 200px;
+}
+
+.picture {
+    width: 210px;
+}
+
+#btn
+{
+    background-color: rgb(83, 170, 241); 
+}

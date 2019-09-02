@@ -1,0 +1,77 @@
+.navbar {
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    width: 100%;
+    height: 60px;
+    background: rgb(135, 196, 245)
+}
+
+.collapse.navbar-collapse {
+    right: 0%;
+    position: absolute;
+}
+
+input.largerCheckbox { 
+    width: 80px; 
+    height: 80px; 
+} 
+
+label.navbar-brand
+{
+    font-size: 36px;
+    left: 500px;
+} 
+
+#label
+{
+    position: absolute;
+    font-size: 36px;
+    margin-left: 50px;
+    margin-right: 100px;
+    color: #fff;
+    top: 5px;
+    left: 800px;
+}
+
+h1{
+    color: #fff;
+}
+
+#btn
+{    
+    
+    background-color: rgb(83, 170, 241);
+    color: #fff;    
+    
+}
+
+.map
+{
+    position: absolute;
+    width:50%;
+    height: 50%;
+    left: 1%;
+    top: 10px;
+}
+
+.btncb
+{
+    position: relative;
+    left: 300px;
+    top: -30px;
+    transition: none 0s ease 0s;
+    cursor: move;
+}
+
+#form1
+{
+    background: rgb(135, 196, 245);
+    color: #fff;
+}
+
+.defaultCheckbox
+{
+    background: rgb(135, 196, 245);
+    color: #fff;
+}

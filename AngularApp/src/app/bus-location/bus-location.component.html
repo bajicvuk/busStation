@@ -1,0 +1,64 @@
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+  integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+<!--<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+-->
+
+<nav class="navbar">
+  <label id="label">Bus station</label>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup"
+    aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div>
+    <div >
+      <a id="btn" (click)="Navigate()">Home <span class="sr-only">(current)</span></a>
+    </div>
+  </div>
+</nav>
+
+
+<div class="map">
+  <h1>Bus location</h1>
+  <agm-map [latitude]="startLat" [longitude]="startLon" [zoom]="zoom" id="mapa">
+
+
+
+    <div *ngFor="let point of polyline.path, let j = index">
+      <agm-direction
+        [renderOptions]="{polylineOptions: {strokeColor: polyline.color}, suppressMarkers: true, preserveViewport: true}"
+        *ngIf="polyline.path[j+1]" [origin]="{ lat: polyline.path[j].latitude, lng: polyline.path[j].longitude }"
+        [destination]="{ lat: polyline.path[j+1].latitude, lng: polyline.path[j+1].longitude }">
+
+      </agm-direction>
+    </div>
+
+    <agm-marker *ngFor="let point of polyline.path" [latitude]="point.latitude" [longitude]="point.longitude"
+      [iconUrl]="polyline.icon">
+    </agm-marker>
+
+    <!-- <agm-marker *ngFor="let m of stations" [latitude]="m.Lat" [longitude]="m.Lon" [title]="m.Name" [iconUrl]="busImgIcon" label="">
+</agm-marker> -->
+
+    <agm-marker *ngIf="latitude && longitude" [latitude]="latitude" [longitude]="longitude" [iconUrl]="autobusImgIcon"
+      label="" [zIndex]=101>
+
+    </agm-marker>
+
+  </agm-map>
+
+</div>
+
+
+
+<div id="lines">
+  <label>Select line</label>
+  <select class="custom-select" width="2" height="2" (change)="onSelectionChangeNumber($event)" required>
+    <option></option>
+    <option *ngFor="let obj of allLines" [value]="obj.LineNumber">{{obj.LineNumber}}</option>
+  </select>
+  <div class="invalid-feedback">
+    Please enter valid id.
+  </div>
+</div>

@@ -1,0 +1,83 @@
+.navbar {
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    width: 100%;
+    height: 60px;
+    background: rgb(135, 196, 245)
+}
+
+#label
+{
+    position: absolute;
+    font-size: 36px;
+    margin-left: 50px;
+    margin-right: 100px;
+    color: #fff;
+    top: 5px;
+    left: 800px;
+}
+#btn
+{    
+    
+    background-color: rgb(83, 170, 241);
+    color: #fff;    
+    
+}
+
+.login
+{
+    position: absolute;
+    background: rgb(135, 196, 245);
+    height: 210px;
+    width: 300px;
+    top: 200px;
+    left: 300px;
+    color: #fff;
+    
+}
+h2
+{
+    color: #fff;
+}
+.collapse.navbar-collapse {
+    right: 0%;
+    position: absolute;
+}
+
+.needs-validation {
+    width: 40%;
+    margin-left: 30%;
+    margin-top: 10px;
+    text-align: center;
+}
+
+
+/*
+  .btn.btn-primary {
+      margin-bottom: 20px;
+      margin-top: 20px;
+  }*/
+
+.email {
+    margin-top: 30px;
+}
+
+.poruka {
+    margin-bottom: 20px;
+}
+
+.id {
+    margin-top: 5px;
+}
+
+h2,
+p,
+form {
+    text-align: center;
+}
+
+#btn
+{
+    background-color: rgb(83, 170, 241); /* Green */
+}
